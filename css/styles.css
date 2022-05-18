@@ -1,0 +1,83 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: #495867;
+  height: 80px;
+}
+header h1 {
+  color: #fe5f55;
+  margin-left: 5px;
+  margin: 0px 40px;
+}
+header nav a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  margin-left: 20px;
+  color: #f7f7ff;
+  font-size: 1em;
+}
+header nav a:hover {
+  color: #fe5f55;
+  border-bottom: 1px solid #fe5f55;
+}
+
+.main-container {
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-container form select {
+  width: 200px;
+  height: 30px;
+  margin: 0px 5px;
+}
+.main-container form .search, .main-container form .clean {
+  background-color: #fe5f55;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #fe5f55;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+.main-container form .search:hover, .main-container form .clean:hover {
+  background-color: #f74e42;
+  border: 1px solid #f74e42;
+}
+.main-container form .clean {
+  color: #46494c;
+  background-color: #f7f7ff;
+  border: 1px solid #46494c;
+}
+.main-container form .clean:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 100%;
+  background-color: #495867;
+  position: absolute;
+  bottom: 0;
+}
+footer p {
+  color: #f7f7ff;
+  font-size: 1em;
+}
+
+/*# sourceMappingURL=styles.css.map */
