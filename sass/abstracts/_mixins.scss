@@ -1,0 +1,11 @@
+@mixin button_style ($background: $accent--color, $color: $font--color--secondary) {
+    background-color: $background;
+    color: $color;
+    font-weight: bold;
+    border: 1px solid $background;
+    border-radius: 5px;
+    margin: 0px 2px;
+    padding: 0px 10px;
+    height: 30px;
+    cursor: pointer;
+}

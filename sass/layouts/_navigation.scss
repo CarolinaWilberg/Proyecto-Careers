@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    align-items: center;
+    background-color: $secondary--color;
+    height: 80px;
+    h1{
+        color: $font--color--accent;
+        margin-left: 5px;
+        margin: 0px 40px;
+    }
+    nav{
+        a{
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            margin-left: 20px;
+            color: $font--color--secondary;
+            font-size: $font--size--small;
+            &:hover{
+                color: $font--color--accent;
+                border-bottom: 1px solid $font--color--accent;
+            }
+        }
+
+    }
+}
