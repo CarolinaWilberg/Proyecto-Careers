@@ -1,8 +1,7 @@
 .container{
     padding: 50px 90px;
-    display: flex;
+    @include flex-display();
     flex-direction: column;
-    align-items: center;
     .search-form{
         select{
            width: 200px;
@@ -12,8 +11,8 @@
         .btn-search{
             @include button_style();
             &:hover{
-                background-color: #f74e42;
-                border: 1px solid #f74e42;
+                background-color: $button--hover--primary;
+                border: 1px solid $button--hover--primary;
             }
         }
         .btn-clean{
@@ -22,18 +21,15 @@
             background-color: $primary--color;
             border: 1px solid $font--color--primary;
             &:hover{
-                background-color: #9cafc9;
-                border: 1px solid #9cafc9;
+                background-color: $button--hover--secondary;
+                border: 1px solid $button--hover--secondary;
                 color: $font--color--secondary;
             }
         }
     }
     #container-cards{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 50px 90px;
+        @include flex-display();
+        padding: 50px 0px;
         .dot-spinner {
             --uib-size: 40px;
             --uib-speed: .9s;
@@ -164,8 +160,8 @@
                 width: 40%;
                 @include button_style();
                 &:hover{
-                    background-color: #f74e42;
-                    border: 1px solid #f74e42;
+                    background-color: $button--hover--primary;
+                    border: 1px solid $button--hover--primary;
                 }
             }
         }
