@@ -112,7 +112,7 @@ const createJobDetail = (job) => {
                 <p><span>Nivel de experiencia:</span> ${seniority}</p>
                 <p><span>Categoría:</span> ${category}</p>
             </div>
-            <div>Tecnologías requeridas: ${technologies}</div>
+            <div class="detail-technologies"><span>Tecnologías requeridas:</span> ${technologies.join(', ')}</div>
             <button id="btn-edit" class="btn-edit">Editar</button>
             <button id="btn-delete" class="btn-delete" onclick=showDeleteConfirmation(${id})>Eliminar</button>
             <button id="btn-cancel" class="btn-cancel" onclick=getJobs()>Volver</button>
