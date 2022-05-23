@@ -47,72 +47,76 @@
         <div id="container-cards">  
         </div>
 
-        <form id="create-job-form" class="job-form">
-            <label>Nombre del puesto:</label>
-            <input id="job-name" type="text" name="name" value="">
-            <label>Categoría</label>
-            <select id="job-category">
-                <option value="" disabled selected>Categoría</option>
-                <option value="Desarrollo">Desarrollo</option>
-                <option value="Analista">Analista</option>
-                <option value="Ingeniería">Ingeniería</option>
-                <option value="Diseño">Diseño</option>
-            </select>
-            <label>Descripción</label>
-            <textarea id="job-description" name="description"></textarea>
-            <label>Nivel de experiencia buscado:</label>
-            <select id="job-seniority">
-                <option value="" disabled selected>Nivel de experiencia</option>
-                <option value="Trainee">Trainee</option>
-                <option value="Junior">Junior</option>
-                <option value="Semi Senior">Semi Senior</option>
-                <option value="Senior">Senior</option>
-            </select>
-            <label>Ubicación:</label>
-            <input id="job-location" type="text" name="location">
-            <label>Tecnologías requeridas:</label>
-            <select multiple id="job-technologies">
-                <option value="" disabled selected>Tecnologias</option>
-                <option value="Analytics" class="technology">Analytics</option>
-                <option value="Angular" class="technology">Angular</option>
-                <option value="AWS" class="technology">AWS</option>
-                <option value="Cloud" class="technology">Cloud</option>
-                <option value="CSS" class="technology">CSS</option>
-                <option value="DB" class="technology">DB</option>
-                <option value="Figma" class="technology">Figma</option>
-                <option value="Git" class="technology">Git</option>
-                <option value="Grails" class="technology">Grails</option>
-                <option value="Groovy" class="technology">Groovy</option>
-                <option value="HTML" class="technology">HTML</option>
-                <option value="Invision" class="technology">Invision</option>
-                <option value="Java" class="technology">Java</option>
-                <option value="JavaScript" class="technology">JavaScript</option>
-                <option value="JSON" class="technology">JSON</option>
-                <option value="Maze" class="technology">Maze</option>
-                <option value="Miro" class="technology">Miro</option>
-                <option value="Mural" class="technology">Mural</option>
-                <option value="MySQL" class="technology">MySQL</option>
-                <option value="Node" class="technology">Node</option>
-                <option value="Oracle" class="technology">Oracle</option>
-                <option value="PL/SQL" class="technology">PL/SQL</option>
-                <option value="Postman" class="technology">Postman</option>
-                <option value="Python" class="technology">Python</option>
-                <option value="React JS" class="technology">React JS</option>
-                <option value="Ruby" class="technology">Ruby</option>
-                <option value="Sass" class="technology">Sass</option>
-                <option value="Selenium" class="technology">Selenium</option>
-                <option value="Sharepoint" class="technology">Sharepoint</option>
-                <option value="Sketch" class="technology">Sketch</option>
-                <option value="SoapUI" class="technology">SoapUI</option>
-                <option value="Spring Framework" class="technology">Spring Framework</option>
-                <option value="SQL" class="technology">SQL</option>
-                <option value="UML" class="technology">UML</option>
-                <option value="Vue" class="technology">Vue</option>
-                <option value="XML" class="technology">XML</option>
-            </select>
-            <button id="btn-save-new">Guardar</button>
-            <button id="btn-cancel-new">Cancelar</button>
-        </form>
+        <div id="create-job-form" class="job-form">
+            <form>
+                <label>Nombre del puesto:</label>
+                <input id="job-name" type="text" name="name" value="">
+                <label>Categoría:</label>
+                <select id="job-category">
+                    <option value="" disabled selected>Categoría</option>
+                    <option value="Desarrollo">Desarrollo</option>
+                    <option value="Analista">Analista</option>
+                    <option value="Ingeniería">Ingeniería</option>
+                    <option value="Diseño">Diseño</option>
+                </select>
+                <label>Descripción:</label>
+                <textarea id="job-description" name="description"></textarea>
+                <label>Nivel de experiencia buscado:</label>
+                <select id="job-seniority">
+                    <option value="" disabled selected>Nivel de experiencia</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Semi Senior">Semi Senior</option>
+                    <option value="Senior">Senior</option>
+                </select>
+                <label>Ubicación:</label>
+                <input id="job-location" type="text" name="location">
+                <label>Tecnologías requeridas:</label>
+                <select multiple id="job-technologies" class="select-technologies">
+                    <option value="Analytics" class="technology">Analytics</option>
+                    <option value="Angular" class="technology">Angular</option>
+                    <option value="AWS" class="technology">AWS</option>
+                    <option value="Cloud" class="technology">Cloud</option>
+                    <option value="CSS" class="technology">CSS</option>
+                    <option value="DB" class="technology">DB</option>
+                    <option value="Figma" class="technology">Figma</option>
+                    <option value="Git" class="technology">Git</option>
+                    <option value="Grails" class="technology">Grails</option>
+                    <option value="Groovy" class="technology">Groovy</option>
+                    <option value="HTML" class="technology">HTML</option>
+                    <option value="Invision" class="technology">Invision</option>
+                    <option value="Java" class="technology">Java</option>
+                    <option value="JavaScript" class="technology">JavaScript</option>
+                    <option value="JSON" class="technology">JSON</option>
+                    <option value="Maze" class="technology">Maze</option>
+                    <option value="Miro" class="technology">Miro</option>
+                    <option value="Mural" class="technology">Mural</option>
+                    <option value="MySQL" class="technology">MySQL</option>
+                    <option value="Node" class="technology">Node</option>
+                    <option value="Oracle" class="technology">Oracle</option>
+                    <option value="PL/SQL" class="technology">PL/SQL</option>
+                    <option value="Postman" class="technology">Postman</option>
+                    <option value="Python" class="technology">Python</option>
+                    <option value="React JS" class="technology">React JS</option>
+                    <option value="Ruby" class="technology">Ruby</option>
+                    <option value="Sass" class="technology">Sass</option>
+                    <option value="Selenium" class="technology">Selenium</option>
+                    <option value="Sharepoint" class="technology">Sharepoint</option>
+                    <option value="Sketch" class="technology">Sketch</option>
+                    <option value="SoapUI" class="technology">SoapUI</option>
+                    <option value="Spring Framework" class="technology">Spring Framework</option>
+                    <option value="SQL" class="technology">SQL</option>
+                    <option value="UML" class="technology">UML</option>
+                    <option value="Vue" class="technology">Vue</option>
+                    <option value="XML" class="technology">XML</option>
+                </select>
+                <div class="btn-container">
+                    <button id="btn-save-new" class="btn-save-new">Guardar</button>
+                    <button id="btn-cancel-new" class="btn-cancel-new">Cancelar</button>
+                </div>
+            </form>
+        </div>
+        
 
         <div id="success-confirmation" class="success-confirmation">
             <p>Su acción se realizó con éxito!</p>

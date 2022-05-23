@@ -58,7 +58,7 @@ queryId("btn-home").addEventListener('click', getJobs)
 
 const showForm = () => {
     queryId("container-cards").innerHTML = ""
-    //queryId("create-job-form").style.display = "block"
+    queryId("create-job-form").style.display = "block"
 }
 
 queryId("btn-create").addEventListener('click', showForm)
