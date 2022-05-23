@@ -383,4 +383,67 @@ footer p {
   color: #f7f7ff;
 }
 
+.job-form {
+  display: none;
+  width: 70%;
+}
+.job-form form {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.job-form form label {
+  margin-bottom: 20px;
+  color: #fe5f55;
+  font-weight: bold;
+}
+.job-form form select, .job-form form input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.job-form form .select-technologies {
+  height: 100px;
+  margin-bottom: 40px;
+}
+.job-form form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
+.job-form form .btn-save-new {
+  background-color: #fe5f55;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #fe5f55;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.job-form form .btn-save-new:hover {
+  background-color: #ca473e;
+  border: 1px solid #ca473e;
+}
+.job-form form .btn-cancel-new {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #353535;
+}
+.job-form form .btn-cancel-new:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+
 /*# sourceMappingURL=styles.css.map */

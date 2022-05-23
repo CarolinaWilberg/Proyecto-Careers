@@ -1,0 +1,43 @@
+.job-form{
+    display: none;
+    width: 70%;
+    form{
+        @include flex-display($alignment: left);
+        flex-direction: column;
+        label{
+            margin-bottom: 20px;
+            color: $font--color--accent;
+            font-weight: bold;
+        }
+        select, input{
+            width: 100%;
+            height: 30px; 
+            margin-bottom: 20px;
+        }
+        .select-technologies{
+            height: 100px;
+            margin-bottom: 40px;
+        }
+        textarea{
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .btn-save-new{
+            @include button_style();
+            margin-right: 20px;
+            &:hover{
+                background-color: $button--hover--primary;
+                border: 1px solid $button--hover--primary;
+            }
+        }
+        .btn-cancel-new{
+            @include button_style ($background: $primary--color, $color: $font--color--primary);
+            border: 1px solid $font--color--primary;
+            &:hover{
+                background-color: #9cafc9;
+                border: 1px solid #9cafc9;
+                color: $font--color--secondary;
+            }
+        }
+    }
+}
