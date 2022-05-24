@@ -54,14 +54,35 @@ const createJobCards = (jobs) => {
     }, 2000)
 }
 
-queryId("btn-home").addEventListener('click', getJobs)
+queryId("btn-home").addEventListener('click', getJobs) //VER DE SACARLO
 
-const showForm = () => {
-    queryId("container-cards").innerHTML = ""
+const showFormNewJob = () => {
+    queryId("container").innerHTML = ""
     queryId("create-job-form").style.display = "block"
 }
 
-queryId("btn-create").addEventListener('click', showForm)
+queryId("btn-create").addEventListener('click', showFormNewJob)
+
+const showSuccessConfirmation = () => {
+    queryId("container-cards").innerHTML = ""
+    queryId("create-job-form").style.display = "none"
+    queryId("success-confirmation").style.display = "block"
+}
+
+const showWarningAlert = () => {
+    queryId("container-cards").innerHTML = ""
+    queryId("create-job-form").style.display = "none"
+    queryId("warning-alert").style.display = "block"
+}
+
+queryId("btn-back-success").addEventListener('click', () => {
+    queryId("success-confirmation").style.display = "none"
+    getJobs()
+})
+/*queryId("btn-back-warning").addEventListener('click', () => {
+    queryId("warning-alert").style.display = "none"
+    getJobs()
+})*/
 
 const saveNewJobData = () => {
     const colectionTechnologies = document.querySelectorAll('.technology')
@@ -87,10 +108,21 @@ const createJob = () => {
         },
         body: JSON.stringify(saveNewJobData())
     })
-    .catch(err => console.log(err))
+        .then(res => {
+            if (res.ok){
+                showSuccessConfirmation()
+            } else {
+                showWarningAlert()
+            }
+        })
+        .catch(err => console.log(err))
+        //.finally(() => location.reload())
 }
 
-queryId("btn-save-new").addEventListener('click', createJob)
+queryId("btn-save-new").addEventListener('click', (e) => {
+    e.preventDefault()
+    createJob()
+})
 queryId("btn-cancel-new").addEventListener('click', getJobs)
 
 const getJob = (id) => {
@@ -113,7 +145,7 @@ const createJobDetail = (job) => {
                 <p><span>Categoría:</span> ${category}</p>
             </div>
             <div class="detail-technologies"><span>Tecnologías requeridas:</span> ${technologies.join(', ')}</div>
-            <button id="btn-edit" class="btn-edit">Editar</button>
+            <button id="btn-edit" class="btn-edit" onclick=showEditForm(${id})>Editar</button>
             <button id="btn-delete" class="btn-delete" onclick=showDeleteConfirmation(${id})>Eliminar</button>
             <button id="btn-cancel" class="btn-cancel" onclick=getJobs()>Volver</button>
         </div>
@@ -135,10 +167,57 @@ const deleteJob = (id) => {
     fetch(`${BASE_URL}jobs/${id}`, {
         method: "DELETE",
     })
-    .catch(err => console.log(err))
+        .then(res => {
+            if (res.ok){
+                showSuccessConfirmation()
+            } else {
+                showWarningAlert()
+            }
+        })
+        .catch(err => console.log(err))
 }
 
-/* PUT 
+const showEditForm = (id) => {
+    queryId("edit-job-form").style.display = "block"
+    queryId("container-forms").innerHTML += `
+    <div class="btn-container">
+        <button id="btn-save-edit" class="btn-save-edit" onclick=editJob(${id})>Guardar</button>
+        <button id="btn-cancel-edit" class="btn-cancel-edit" onclick=getJobs()>Cancelar</button>
+    </div>
+    `
+    getJobInfo(id)
+}
+
+const getJobInfo = (id) => {
+    getData(id)
+        .then(res => prepopulateEditForm(res))
+        .catch(err => console.log(err))
+}
+
+const prepopulateEditForm = (data) => {
+    const { name, category, description, location, seniority } = data 
+    queryId("edited-job-name").value = name
+    queryId("edited-job-category").value = category
+    queryId("edited-job-description").value = description
+    queryId("edited-job-location").value = location
+    queryId("edited-job-seniority").value = seniority
+}
+
+const saveEditedJobData = (id) => {
+    const colectionTechnologies = document.querySelectorAll('.technology')
+    const selectedTechnologies = []
+    for (const technology of colectionTechnologies){
+      technology.selected ? selectedTechnologies.push(technology.value) : false
+    } 
+    return{
+        name: queryId("edited-job-name").value,
+        category: queryId("edited-job-category").value,
+        description: queryId("edited-job-description").value,
+        location: queryId("edited-job-location").value,
+        seniority: queryId("edited-job-seniority").value,
+        technologies: selectedTechnologies
+    }
+}
 
 const editJob = (id) => {
     fetch(`${BASE_URL}jobs/${id}`, {
@@ -146,6 +225,15 @@ const editJob = (id) => {
         headers: {
             'Content-Type': 'Application/json'
         },
-        body: JSON.stringify(saveJobData())
+        body: JSON.stringify(saveEditedJobData(id))
     })
-}*/
+    .then(res => {
+        if (res.ok){
+            showSuccessConfirmation()
+        } else {
+            showWarningAlert()
+        }
+    })
+    .catch(err => console.log(err))
+    //.finally(() => location.reload())
+}
