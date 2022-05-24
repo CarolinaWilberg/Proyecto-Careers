@@ -231,6 +231,7 @@ footer p {
 }
 
 .card-detail {
+  min-width: 600px;
   width: 60%;
   border: 1px solid #495867;
   border-radius: 5px;
@@ -383,36 +384,36 @@ footer p {
   color: #f7f7ff;
 }
 
-.job-form {
+.job-form, .edit-job-form {
   display: none;
   width: 70%;
 }
-.job-form form {
+.job-form form, .edit-job-form form {
   display: flex;
   align-items: left;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
 }
-.job-form form label {
+.job-form form label, .edit-job-form form label {
   margin-bottom: 20px;
   color: #fe5f55;
   font-weight: bold;
 }
-.job-form form select, .job-form form input {
+.job-form form select, .edit-job-form form select, .job-form form input, .edit-job-form form input {
   width: 100%;
   height: 30px;
   margin-bottom: 20px;
 }
-.job-form form .select-technologies {
+.job-form form .select-technologies, .edit-job-form form .select-technologies {
   height: 100px;
   margin-bottom: 40px;
 }
-.job-form form textarea {
+.job-form form textarea, .edit-job-form form textarea {
   height: 100px;
   margin-bottom: 20px;
 }
-.job-form form .btn-save-new {
+.job-form form .btn-save-new, .edit-job-form form .btn-save-new {
   background-color: #fe5f55;
   color: #f7f7ff;
   font-weight: bold;
@@ -424,11 +425,11 @@ footer p {
   cursor: pointer;
   margin-right: 20px;
 }
-.job-form form .btn-save-new:hover {
+.job-form form .btn-save-new:hover, .edit-job-form form .btn-save-new:hover {
   background-color: #ca473e;
   border: 1px solid #ca473e;
 }
-.job-form form .btn-cancel-new {
+.job-form form .btn-cancel-new, .edit-job-form form .btn-cancel-new {
   background-color: #f7f7ff;
   color: #353535;
   font-weight: bold;
@@ -440,7 +441,7 @@ footer p {
   cursor: pointer;
   border: 1px solid #353535;
 }
-.job-form form .btn-cancel-new:hover {
+.job-form form .btn-cancel-new:hover, .edit-job-form form .btn-cancel-new:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;

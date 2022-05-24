@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-    <section class="container">
+    <section id="container" class="container">
 
         <form class="search-form">
             <select name="Ubicación" id="location-search">
@@ -47,6 +47,9 @@
         <div id="container-cards">  
         </div>
 
+    </section>
+
+    <section id="container-forms">
         <div id="create-job-form" class="job-form">
             <form>
                 <label>Nombre del puesto:</label>
@@ -116,13 +119,84 @@
                 </div>
             </form>
         </div>
-        
 
-        <div id="success-confirmation" class="success-confirmation">
+        <div id="edit-job-form" class="edit-job-form">
+            <form>
+                <label>Nombre del puesto:</label>
+                <input id="edited-job-name" type="text" name="name" value="">
+                <label>Categoría:</label>
+                <select id="edited-job-category">
+                    <option value="" disabled selected>Categoría</option>
+                    <option value="Desarrollo">Desarrollo</option>
+                    <option value="Analista">Analista</option>
+                    <option value="Ingeniería">Ingeniería</option>
+                    <option value="Diseño">Diseño</option>
+                </select>
+                <label>Descripción:</label>
+                <textarea id="edited-job-description" name="description"></textarea>
+                <label>Nivel de experiencia buscado:</label>
+                <select id="edited-job-seniority">
+                    <option value="" disabled selected>Nivel de experiencia</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Semi Senior">Semi Senior</option>
+                    <option value="Senior">Senior</option>
+                </select>
+                <label>Ubicación:</label>
+                <input id="edited-job-location" type="text" name="location">
+                <label>Tecnologías requeridas:</label>
+                <select multiple id="edited-job-technologies" class="select-technologies">
+                    <option value="Analytics" class="technology">Analytics</option>
+                    <option value="Angular" class="technology">Angular</option>
+                    <option value="AWS" class="technology">AWS</option>
+                    <option value="Cloud" class="technology">Cloud</option>
+                    <option value="CSS" class="technology">CSS</option>
+                    <option value="DB" class="technology">DB</option>
+                    <option value="Figma" class="technology">Figma</option>
+                    <option value="Git" class="technology">Git</option>
+                    <option value="Grails" class="technology">Grails</option>
+                    <option value="Groovy" class="technology">Groovy</option>
+                    <option value="HTML" class="technology">HTML</option>
+                    <option value="Invision" class="technology">Invision</option>
+                    <option value="Java" class="technology">Java</option>
+                    <option value="JavaScript" class="technology">JavaScript</option>
+                    <option value="JSON" class="technology">JSON</option>
+                    <option value="Maze" class="technology">Maze</option>
+                    <option value="Miro" class="technology">Miro</option>
+                    <option value="Mural" class="technology">Mural</option>
+                    <option value="MySQL" class="technology">MySQL</option>
+                    <option value="Node" class="technology">Node</option>
+                    <option value="Oracle" class="technology">Oracle</option>
+                    <option value="PL/SQL" class="technology">PL/SQL</option>
+                    <option value="Postman" class="technology">Postman</option>
+                    <option value="Python" class="technology">Python</option>
+                    <option value="React JS" class="technology">React JS</option>
+                    <option value="Ruby" class="technology">Ruby</option>
+                    <option value="Sass" class="technology">Sass</option>
+                    <option value="Selenium" class="technology">Selenium</option>
+                    <option value="Sharepoint" class="technology">Sharepoint</option>
+                    <option value="Sketch" class="technology">Sketch</option>
+                    <option value="SoapUI" class="technology">SoapUI</option>
+                    <option value="Spring Framework" class="technology">Spring Framework</option>
+                    <option value="SQL" class="technology">SQL</option>
+                    <option value="UML" class="technology">UML</option>
+                    <option value="Vue" class="technology">Vue</option>
+                    <option value="XML" class="technology">XML</option>
+                </select>
+            </form>
+        </div>
+    </section>
+
+    <section id="container-alerts">
+         <div id="success-confirmation" class="success-confirmation">
             <p>Su acción se realizó con éxito!</p>
-            <button id="btn-back" class="btn-back">Volver a Inicio</button>
+            <button id="btn-back-success" class="btn-back">Volver a Inicio</button>
         </div>
 
+        <div id="warning-alert" class="warning-alert">
+            <p>Su acción no pudo realizarse, intente nuevamente.</p>
+            <button id="btn-back-warning" class="btn-back">Volver a Inicio</button>
+        </div>
     </section>
 
     <footer>
