@@ -29,23 +29,41 @@
     }
 }
 
-.success-confirmation{
-    display: none;
-    @extend .delete-confirmation;
-    justify-content: space-evenly;
-    width: 70%;
-    background-color: #80eb4e;
-    border: 1px solid $button--edit--hover;
-    p{
-        width: 50%;
-        margin-bottom: 0px;
+#container-alerts{
+    @include flex-display();
+    .success-confirmation{
+        display: none;
+        margin-bottom: 70px;
+        @extend .delete-confirmation;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 70%;
+        background-color: #80eb4e;
+        border: 1px solid $button--edit--hover;
+        p{
+            width: 30%;
+            margin-bottom: 0px;
+        }
+        .btn-back{
+            @include button_style ($background: $primary--color, $color: $font--color--primary);
+            &:hover{
+                background-color: #9cafc9;
+                border: 1px solid #9cafc9;
+                color: $font--color--secondary;
+            }
+        }
     }
-    .btn-back{
-        @include button_style ($background: $primary--color, $color: $font--color--primary);
-        &:hover{
-            background-color: #9cafc9;
-            border: 1px solid #9cafc9;
-            color: $font--color--secondary;
+    .warning-alert{
+        display: none;
+        @extend .delete-confirmation;
+        .btn-back{
+            @include button_style ($background: $primary--color, $color: $font--color--primary);
+            &:hover{
+                background-color: #9cafc9;
+                border: 1px solid #9cafc9;
+                color: $font--color--secondary;
+            }
         }
     }
 }
+
