@@ -1,0 +1,51 @@
+.delete-confirmation{
+    @include flex-display($justification: left);
+    background-color: #f78988;
+    border: 1px solid #f8615f;
+    border-radius: 5px;
+    padding: 50px;
+    p{
+        width: 100%;
+        margin-bottom: 30px;
+        //color: $font--color--secondary;
+        font-weight: bold;
+    }
+    .btn-delete{
+        @include button_style ($background: $button--delete--primary, $color: $font--color--secondary);
+        margin-right: 40px;
+        &:hover{
+            background-color: $button--delete--hover;
+            border: 1px solid $button--delete--hover;
+            color: $font--color--secondary;
+        }
+    }
+    .btn-cancel{
+        @include button_style ($background: $primary--color, $color: $font--color--primary);
+        &:hover{
+            background-color: #9cafc9;
+            border: 1px solid #9cafc9;
+            color: $font--color--secondary;
+        }
+    }
+}
+
+.success-confirmation{
+    display: none;
+    @extend .delete-confirmation;
+    justify-content: space-evenly;
+    width: 70%;
+    background-color: #80eb4e;
+    border: 1px solid $button--edit--hover;
+    p{
+        width: 50%;
+        margin-bottom: 0px;
+    }
+    .btn-back{
+        @include button_style ($background: $primary--color, $color: $font--color--primary);
+        &:hover{
+            background-color: #9cafc9;
+            border: 1px solid #9cafc9;
+            color: $font--color--secondary;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.card-detail{
+    min-width: 600px;
+    width: 60%;
+    border: 1px solid $secondary--color;
+    border-radius: 5px;
+    padding: 40px;
+    h3{
+        color: $font--color--accent;
+        margin-bottom: 10px;
+        font-size: $font--size--medium;
+    }
+    p{
+        color: $font--color--primary;
+        margin-bottom: 10px;
+        span{
+            font-weight: bold;
+        }
+    }
+    .detail-technologies{
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: $font--color--accent;
+        span{
+            color: $font--color--primary;
+        }
+    }
+    .btn-edit{
+        @include button_style ($background: $button--edit--primary, $color: $font--color--secondary);
+        &:hover{
+            background-color: $button--edit--hover;
+            border: 1px solid $button--edit--hover;
+            color: $font--color--secondary;
+        }
+    }
+    .btn-delete{
+        @include button_style ($background: $button--delete--primary, $color: $font--color--secondary);
+        &:hover{
+            background-color: $button--delete--hover;
+            border: 1px solid $button--delete--hover;
+            color: $font--color--secondary;
+        }
+    }
+    .btn-cancel{
+        @include button_style ($background: $primary--color, $color: $font--color--primary);
+        border: 1px solid $font--color--primary;
+        &:hover{
+            background-color: #9cafc9;
+            border: 1px solid #9cafc9;
+            color: $font--color--secondary;
+        }
+    }
+}

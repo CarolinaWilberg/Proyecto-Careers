@@ -1,3 +1,10 @@
+@mixin flex-display ($display: flex, $alignment: center, $justification: center, $wrap: wrap){
+    display: $display;
+    align-items: $alignment;
+    justify-content: $justification;
+    flex-wrap: $wrap;
+}
+
 @mixin button_style ($background: $accent--color, $color: $font--color--secondary) {
     background-color: $background;
     color: $color;

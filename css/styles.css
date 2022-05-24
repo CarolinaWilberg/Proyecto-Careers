@@ -28,18 +28,20 @@ header nav a:hover {
   border-bottom: 1px solid #fe5f55;
 }
 
-.main-container {
-  padding: 50px 100px;
+.container {
+  padding: 50px 90px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
-.main-container form select {
+.container .search-form select {
   width: 200px;
   height: 30px;
   margin: 0px 5px;
 }
-.main-container form .search, .main-container form .clean {
+.container .search-form .btn-search, .container .search-form .btn-clean {
   background-color: #fe5f55;
   color: #f7f7ff;
   font-weight: bold;
@@ -50,19 +52,167 @@ header nav a:hover {
   height: 30px;
   cursor: pointer;
 }
-.main-container form .search:hover, .main-container form .clean:hover {
-  background-color: #f74e42;
-  border: 1px solid #f74e42;
+.container .search-form .btn-search:hover, .container .search-form .btn-clean:hover {
+  background-color: #ca473e;
+  border: 1px solid #ca473e;
 }
-.main-container form .clean {
-  color: #46494c;
+.container .search-form .btn-clean {
+  color: #353535;
   background-color: #f7f7ff;
-  border: 1px solid #46494c;
+  border: 1px solid #353535;
 }
-.main-container form .clean:hover {
+.container .search-form .btn-clean:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;
+}
+.container #container-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 0px;
+}
+.container #container-cards .dot-spinner {
+  --uib-size: 40px;
+  --uib-speed: .9s;
+  --uib-color: #495867;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+.container #container-cards .dot-spinner__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+.container #container-cards .dot-spinner__dot::before {
+  content: "";
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  transform: scale(0);
+  opacity: 0.5;
+  animation: pulse calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+}
+.container #container-cards .dot-spinner__dot:nth-child(2) {
+  transform: rotate(45deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(2)::before {
+  animation-delay: calc(var(--uib-speed) * -0.875);
+}
+.container #container-cards .dot-spinner__dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(3)::before {
+  animation-delay: calc(var(--uib-speed) * -0.75);
+}
+.container #container-cards .dot-spinner__dot:nth-child(4) {
+  transform: rotate(135deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(4)::before {
+  animation-delay: calc(var(--uib-speed) * -0.625);
+}
+.container #container-cards .dot-spinner__dot:nth-child(5) {
+  transform: rotate(180deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(5)::before {
+  animation-delay: calc(var(--uib-speed) * -0.5);
+}
+.container #container-cards .dot-spinner__dot:nth-child(6) {
+  transform: rotate(225deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(6)::before {
+  animation-delay: calc(var(--uib-speed) * -0.375);
+}
+.container #container-cards .dot-spinner__dot:nth-child(7) {
+  transform: rotate(270deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(7)::before {
+  animation-delay: calc(var(--uib-speed) * -0.25);
+}
+.container #container-cards .dot-spinner__dot:nth-child(8) {
+  transform: rotate(315deg);
+}
+.container #container-cards .dot-spinner__dot:nth-child(8)::before {
+  animation-delay: calc(var(--uib-speed) * -0.125);
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.container #container-cards .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border: 0.5px solid #495867;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 25px;
+}
+.container #container-cards .card h3 {
+  margin-bottom: 10px;
+  color: #fe5f55;
+  font-size: 1.4em;
+}
+.container #container-cards .card .description-container {
+  width: 100%;
+}
+.container #container-cards .card .description-container p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 20px;
+  color: #353535;
+  font-size: 0.9em;
+}
+.container #container-cards .card .search-options {
+  display: flex;
+  margin-bottom: 20px;
+}
+.container #container-cards .card .search-options p {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 0.7em;
+  background-color: #495867;
+  border: 1px solid #495867;
+  padding: 5px;
+  border-radius: 5px;
+  color: #f7f7ff;
+}
+.container #container-cards .card .btn-detail {
+  width: 40%;
+  background-color: #fe5f55;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #fe5f55;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+.container #container-cards .card .btn-detail:hover {
+  background-color: #ca473e;
+  border: 1px solid #ca473e;
 }
 
 footer {
@@ -72,12 +222,229 @@ footer {
   height: 70px;
   width: 100%;
   background-color: #495867;
-  position: absolute;
-  bottom: 0;
+  /*position: absolute;
+  bottom: 0;*/
 }
 footer p {
   color: #f7f7ff;
   font-size: 1em;
+}
+
+.card-detail {
+  min-width: 600px;
+  width: 60%;
+  border: 1px solid #495867;
+  border-radius: 5px;
+  padding: 40px;
+}
+.card-detail h3 {
+  color: #fe5f55;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+.card-detail p {
+  color: #353535;
+  margin-bottom: 10px;
+}
+.card-detail p span {
+  font-weight: bold;
+}
+.card-detail .detail-technologies {
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #fe5f55;
+}
+.card-detail .detail-technologies span {
+  color: #353535;
+}
+.card-detail .btn-edit {
+  background-color: #65d132;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #65d132;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+.card-detail .btn-edit:hover {
+  background-color: #498d29;
+  border: 1px solid #498d29;
+  color: #f7f7ff;
+}
+.card-detail .btn-delete {
+  background-color: #e22522;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #e22522;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+.card-detail .btn-delete:hover {
+  background-color: #b41c19;
+  border: 1px solid #b41c19;
+  color: #f7f7ff;
+}
+.card-detail .btn-cancel {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #353535;
+}
+.card-detail .btn-cancel:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+
+.delete-confirmation, .success-confirmation {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  background-color: #f78988;
+  border: 1px solid #f8615f;
+  border-radius: 5px;
+  padding: 50px;
+}
+.delete-confirmation p, .success-confirmation p {
+  width: 100%;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.delete-confirmation .btn-delete, .success-confirmation .btn-delete {
+  background-color: #e22522;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #e22522;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+.delete-confirmation .btn-delete:hover, .success-confirmation .btn-delete:hover {
+  background-color: #b41c19;
+  border: 1px solid #b41c19;
+  color: #f7f7ff;
+}
+.delete-confirmation .btn-cancel, .success-confirmation .btn-cancel {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+.delete-confirmation .btn-cancel:hover, .success-confirmation .btn-cancel:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+
+.success-confirmation {
+  display: none;
+  justify-content: space-evenly;
+  width: 70%;
+  background-color: #80eb4e;
+  border: 1px solid #498d29;
+}
+.success-confirmation p {
+  width: 50%;
+  margin-bottom: 0px;
+}
+.success-confirmation .btn-back {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+.success-confirmation .btn-back:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+
+.job-form, .edit-job-form {
+  display: none;
+  width: 70%;
+}
+.job-form form, .edit-job-form form {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.job-form form label, .edit-job-form form label {
+  margin-bottom: 20px;
+  color: #fe5f55;
+  font-weight: bold;
+}
+.job-form form select, .edit-job-form form select, .job-form form input, .edit-job-form form input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.job-form form .select-technologies, .edit-job-form form .select-technologies {
+  height: 100px;
+  margin-bottom: 40px;
+}
+.job-form form textarea, .edit-job-form form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
+.job-form form .btn-save-new, .edit-job-form form .btn-save-new {
+  background-color: #fe5f55;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #fe5f55;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.job-form form .btn-save-new:hover, .edit-job-form form .btn-save-new:hover {
+  background-color: #ca473e;
+  border: 1px solid #ca473e;
+}
+.job-form form .btn-cancel-new, .edit-job-form form .btn-cancel-new {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #353535;
+}
+.job-form form .btn-cancel-new:hover, .edit-job-form form .btn-cancel-new:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
 }
 
 /*# sourceMappingURL=styles.css.map */
