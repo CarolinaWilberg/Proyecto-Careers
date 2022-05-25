@@ -11,7 +11,7 @@ const getData = async (id) => {
 const getJobs = () => {
     getData()
         .then(res => createJobCards(res))
-        .catch(err => console.log(err)) 
+        .catch(err => console.log(err))
 }
 getJobs() 
     
@@ -57,7 +57,7 @@ const createJobCards = (jobs) => {
 queryId("btn-home").addEventListener('click', getJobs) //VER DE SACARLO
 
 const showFormNewJob = () => {
-    queryId("container").innerHTML = ""
+    queryId("container-cards").innerHTML = ""
     queryId("create-job-form").style.display = "block"
 }
 
@@ -123,7 +123,10 @@ queryId("btn-save-new").addEventListener('click', (e) => {
     e.preventDefault()
     createJob()
 })
-queryId("btn-cancel-new").addEventListener('click', getJobs)
+queryId("btn-cancel-new").addEventListener('click', () => {
+    queryId("create-job-form").style.display = "none"
+    getJobs()
+})
 
 const getJob = (id) => {
     getData(id)
@@ -158,7 +161,7 @@ const showDeleteConfirmation = (id) => {
     <div class="delete-confirmation">
         <p>Está seguro que desea eliminar esta oferta de empleo?</p>
         <button id="btn-confirm-delete" class="btn-delete" onclick=deleteJob(${id})>Eliminar</button>
-        <button id="btn-cancel" class="btn-cancel" onclick=getJobs()>Cancelar</button>
+        <button id="btn-cancel" class="btn-cancel" onclick=getJob(${id})>Cancelar</button>
     </div>
     `
 }
@@ -237,3 +240,4 @@ const editJob = (id) => {
     .catch(err => console.log(err))
     //.finally(() => location.reload())
 }
+

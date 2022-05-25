@@ -36,6 +36,9 @@ header nav a:hover {
   flex-wrap: wrap;
   flex-direction: column;
 }
+.container .search-form {
+  margin-bottom: 50px;
+}
 .container .search-form select {
   width: 200px;
   height: 30px;
@@ -71,7 +74,7 @@ header nav a:hover {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 50px 0px;
+  max-width: 1365px;
 }
 .container #container-cards .dot-spinner {
   --uib-size: 40px;
@@ -216,10 +219,11 @@ header nav a:hover {
 }
 
 footer {
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
+  height: 100px;
   width: 100%;
   background-color: #495867;
   /*position: absolute;
@@ -307,7 +311,7 @@ footer p {
   color: #f7f7ff;
 }
 
-.delete-confirmation, .success-confirmation {
+.delete-confirmation, #container-alerts .warning-alert, #container-alerts .success-confirmation {
   display: flex;
   align-items: center;
   justify-content: left;
@@ -317,12 +321,12 @@ footer p {
   border-radius: 5px;
   padding: 50px;
 }
-.delete-confirmation p, .success-confirmation p {
+.delete-confirmation p, #container-alerts .warning-alert p, #container-alerts .success-confirmation p {
   width: 100%;
   margin-bottom: 30px;
   font-weight: bold;
 }
-.delete-confirmation .btn-delete, .success-confirmation .btn-delete {
+.delete-confirmation .btn-delete, #container-alerts .warning-alert .btn-delete, #container-alerts .success-confirmation .btn-delete {
   background-color: #e22522;
   color: #f7f7ff;
   font-weight: bold;
@@ -334,12 +338,12 @@ footer p {
   cursor: pointer;
   margin-right: 40px;
 }
-.delete-confirmation .btn-delete:hover, .success-confirmation .btn-delete:hover {
+.delete-confirmation .btn-delete:hover, #container-alerts .warning-alert .btn-delete:hover, #container-alerts .success-confirmation .btn-delete:hover {
   background-color: #b41c19;
   border: 1px solid #b41c19;
   color: #f7f7ff;
 }
-.delete-confirmation .btn-cancel, .success-confirmation .btn-cancel {
+.delete-confirmation .btn-cancel, #container-alerts .warning-alert .btn-cancel, #container-alerts .success-confirmation .btn-cancel {
   background-color: #f7f7ff;
   color: #353535;
   font-weight: bold;
@@ -350,24 +354,32 @@ footer p {
   height: 30px;
   cursor: pointer;
 }
-.delete-confirmation .btn-cancel:hover, .success-confirmation .btn-cancel:hover {
+.delete-confirmation .btn-cancel:hover, #container-alerts .warning-alert .btn-cancel:hover, #container-alerts .success-confirmation .btn-cancel:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;
 }
 
-.success-confirmation {
+#container-alerts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#container-alerts .success-confirmation {
   display: none;
+  margin-bottom: 70px;
+  flex-direction: row;
   justify-content: space-evenly;
   width: 70%;
   background-color: #80eb4e;
   border: 1px solid #498d29;
 }
-.success-confirmation p {
-  width: 50%;
+#container-alerts .success-confirmation p {
+  width: 30%;
   margin-bottom: 0px;
 }
-.success-confirmation .btn-back {
+#container-alerts .success-confirmation .btn-back {
   background-color: #f7f7ff;
   color: #353535;
   font-weight: bold;
@@ -378,42 +390,68 @@ footer p {
   height: 30px;
   cursor: pointer;
 }
-.success-confirmation .btn-back:hover {
+#container-alerts .success-confirmation .btn-back:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+#container-alerts .warning-alert {
+  display: none;
+}
+#container-alerts .warning-alert .btn-back {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+}
+#container-alerts .warning-alert .btn-back:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;
 }
 
-.job-form, .edit-job-form {
+#container-forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+#container-forms .job-form, #container-forms .edit-job-form {
   display: none;
   width: 70%;
 }
-.job-form form, .edit-job-form form {
+#container-forms .job-form form, #container-forms .edit-job-form form {
   display: flex;
   align-items: left;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
 }
-.job-form form label, .edit-job-form form label {
+#container-forms .job-form form label, #container-forms .edit-job-form form label {
   margin-bottom: 20px;
   color: #fe5f55;
   font-weight: bold;
 }
-.job-form form select, .edit-job-form form select, .job-form form input, .edit-job-form form input {
+#container-forms .job-form form select, #container-forms .edit-job-form form select, #container-forms .job-form form input, #container-forms .edit-job-form form input {
   width: 100%;
   height: 30px;
   margin-bottom: 20px;
 }
-.job-form form .select-technologies, .edit-job-form form .select-technologies {
+#container-forms .job-form form .select-technologies, #container-forms .edit-job-form form .select-technologies {
   height: 100px;
   margin-bottom: 40px;
 }
-.job-form form textarea, .edit-job-form form textarea {
+#container-forms .job-form form textarea, #container-forms .edit-job-form form textarea {
   height: 100px;
   margin-bottom: 20px;
 }
-.job-form form .btn-save-new, .edit-job-form form .btn-save-new {
+#container-forms .job-form form .btn-save-new, #container-forms .edit-job-form form .btn-save-new {
   background-color: #fe5f55;
   color: #f7f7ff;
   font-weight: bold;
@@ -425,11 +463,11 @@ footer p {
   cursor: pointer;
   margin-right: 20px;
 }
-.job-form form .btn-save-new:hover, .edit-job-form form .btn-save-new:hover {
+#container-forms .job-form form .btn-save-new:hover, #container-forms .edit-job-form form .btn-save-new:hover {
   background-color: #ca473e;
   border: 1px solid #ca473e;
 }
-.job-form form .btn-cancel-new, .edit-job-form form .btn-cancel-new {
+#container-forms .job-form form .btn-cancel-new, #container-forms .edit-job-form form .btn-cancel-new {
   background-color: #f7f7ff;
   color: #353535;
   font-weight: bold;
@@ -441,7 +479,46 @@ footer p {
   cursor: pointer;
   border: 1px solid #353535;
 }
-.job-form form .btn-cancel-new:hover, .edit-job-form form .btn-cancel-new:hover {
+#container-forms .job-form form .btn-cancel-new:hover, #container-forms .edit-job-form form .btn-cancel-new:hover {
+  background-color: #9cafc9;
+  border: 1px solid #9cafc9;
+  color: #f7f7ff;
+}
+#container-forms .btn-container {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#container-forms .btn-container .btn-save-edit {
+  background-color: #fe5f55;
+  color: #f7f7ff;
+  font-weight: bold;
+  border: 1px solid #fe5f55;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+#container-forms .btn-container .btn-save-edit:hover {
+  background-color: #ca473e;
+  border: 1px solid #ca473e;
+}
+#container-forms .btn-container .btn-cancel-edit {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 0px 10px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #353535;
+}
+#container-forms .btn-container .btn-cancel-edit:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;
