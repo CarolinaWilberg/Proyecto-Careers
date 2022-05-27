@@ -1,63 +1,140 @@
-.delete-confirmation{
-    @include flex-display();
-    background-color: #f78988;
-    border: 1px solid #f8615f;
-    border-radius: 5px;
+.success-confirmation{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
     padding: 50px;
-    p{
-        width: 100%;
-        margin-bottom: 30px;
-        //color: $font--color--secondary;
-        font-weight: bold;
+    margin-bottom: 70px;
+    width: 70%;
+    background-color: #a0fd74;
+    border: 1px solid $button--edit--hover;
+    border-radius: 5px;
+    .alert-container{
+        display: flex;
+        align-items: center;
+        .fa-solid{
+            font-size: $font--size--large;
+            color: $button--edit--hover;
+            margin-right: 20px;
+        }
+        p{
+            font-weight: bold;
+        }
     }
-    .btn-delete{
-        @include button_style ($background: $button--delete--primary, $color: $font--color--secondary);
-        margin-right: 40px;
+    .btn-back{
+        @include button_style ($background: $primary--color, $color: $font--color--primary);
+        border: 1px solid $font--color--primary;
         &:hover{
-            background-color: $button--delete--hover;
-            border: 1px solid $button--delete--hover;
+            background-color: #7f9dc7;
+            border: 1px solid #7f9dc7;
             color: $font--color--secondary;
         }
     }
-    .btn-cancel{
-        @include button_style ($background: $primary--color, $color: $font--color--primary);
-        &:hover{
-            background-color: #9cafc9;
-            border: 1px solid #9cafc9;
-            color: $font--color--secondary;
+    @media only screen and (max-width: 960px){
+        flex-direction: column;
+        .alert-container{
+            margin-bottom: 20px;
+        }
+    }
+    @media only screen and (max-width: 550px){
+        padding: 30px;
+        .alert-container{
+            flex-direction: column;
+            margin-bottom: 20px;
+            .fa-solid{
+                margin-right: 0px;
+            }
+            p{
+                margin-top: 20px;
+                text-align: center;
+            }
         }
     }
 }
 
-#container-alerts{
-    @include flex-display();
-    .success-confirmation{
-        display: none;
-        margin-bottom: 70px;
-        @extend .delete-confirmation;
-        width: 70%;
-        background-color: #80eb4e;
-        border: 1px solid $button--edit--hover;
-        .btn-back{
-            @include button_style ($background: $primary--color, $color: $font--color--primary);
-            &:hover{
-                background-color: #9cafc9;
-                border: 1px solid #9cafc9;
-                color: $font--color--secondary;
-            }
+.warning-alert{
+    @extend .success-confirmation;
+    background-color: #faaead;
+    border: 1px solid #f73633;
+    .alert-container{
+        .fa-solid{
+            color: #f73633;
         }
     }
-    .warning-alert{
-        display: none;
-        @extend .delete-confirmation;
-        .btn-back{
-            @include button_style ($background: $primary--color, $color: $font--color--primary);
-            &:hover{
-                background-color: #9cafc9;
-                border: 1px solid #9cafc9;
-                color: $font--color--secondary;
+}
+
+#container-cards{
+    .delete-confirmation{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #faaead;
+        border: 1px solid #f73633;
+        border-radius: 5px;
+        padding: 50px;
+        margin-bottom: 70px;
+        .alert-container{
+            display: flex;
+            align-items: center;
+            .fa-solid{
+                font-size: $font--size--large;
+                color: #f73633;
+                margin-right: 20px;
+            }
+            p{
+                font-weight: bold;
+            }
+        }
+        .btn-container{
+            margin-top: 20px;
+            .btn-delete{
+                @include button_style ($background: $button--delete--primary, $color: $font--color--secondary);
+                margin-right: 40px;
+                &:hover{
+                    background-color: $button--delete--hover;
+                    border: 1px solid $button--delete--hover;
+                    color: $font--color--secondary;
+                }
+            }
+            .btn-back{
+                @include button_style ($background: $primary--color, $color: $font--color--primary);
+                border: 1px solid $font--color--primary;
+                &:hover{
+                    background-color: #7f9dc7;
+                    border: 1px solid #7f9dc7;
+                    color: $font--color--secondary;
+                }
+            }
+        }
+        @media only screen and (max-width: 330px){
+            justify-content: center;
+            align-items: center;
+            .alert-container{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                .fa-solid{
+                    margin-right: 0px;
+                }
+                p{
+                    margin-top: 20px;
+                }
+            }
+            .btn-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                //text-align: center;
+                
+                .btn-delete{
+                    margin-right: 0px;
+                    margin-bottom: 20px;
+                }
             }
         }
     }
 }
+
 

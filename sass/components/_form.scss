@@ -16,6 +16,10 @@
         }
         .select-technologies{
             height: 100px;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: $font--size--small - 0.1em;
             margin-bottom: 40px;
         }
         textarea{
@@ -41,7 +45,7 @@
                     color: $font--color--secondary;
                 }
             }
-            #btn-save-edit, #btn-cancel-edit {
+            .d-none {
                 display: none;
             }
         }
