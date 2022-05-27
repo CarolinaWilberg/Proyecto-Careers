@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/190be22f47.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -25,28 +26,28 @@
         <form id="search-form" class="search-form">
             <select name="Ubicación" id="location-search">
                 <option value="" disabled selected>Ubicación</option>
-                <option value="">Argentina</option>
-                <option value="">Brasil</option>
-                <option value="">Canadá</option>
-                <option value="">Chile</option>
-                <option value="">Colombia</option>
-                <option value="">Costa Rica</option>
-                <option value="">Estados Unidos</option>
-                <option value="">Uruguay</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Canadá">Canadá</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Uruguay">Uruguay</option>
             </select>
             <select name="Seniority" id="seniority-search">
                 <option value="" disabled selected>Nivel de experiencia</option>
-                <option value="">Trainee</option>
-                <option value="">Junior</option>
-                <option value="">Semi Senior</option>
-                <option value="">Senior</option>
+                <option value="Trainee">Trainee</option>
+                <option value="Junior">Junior</option>
+                <option value="Semi Senior">Semi Senior</option>
+                <option value="Senior">Senior</option>
             </select>
             <select name="Categoría" id="category-search">
                 <option value="" disabled selected>Categoría</option>
-                <option value="">Desarrollo</option>
-                <option value="">Analista</option>
-                <option value="">Ingeniería</option>
-                <option value="">Diseño</option>
+                <option value="Desarrollo">Desarrollo</option>
+                <option value="Analista">Analista</option>
+                <option value="Ingeniería">Ingeniería</option>
+                <option value="Diseño">Diseño</option>
             </select>
             <button id="btn-search" class="btn-search">Buscar</button>
             <button id="btn-clean" class="btn-clean">Limpiar</button>
@@ -118,32 +119,37 @@
                     <option value="Vue" class="technology">Vue</option>
                     <option value="XML" class="technology">XML</option>
                 </select>
+                <p>(Mantenga presionada la tecla Ctrl para seleccionar varias opciones)</p>
                 <div class="btn-container">
                     <button id="btn-save-new" class="btn-save">Guardar</button>
-                    <button id="btn-save-edit" class="btn-save">Editar</button>
+                    <button id="btn-save-edit" class="btn-save d-none">Editar</button>
                     <button id="btn-cancel-new" class="btn-cancel">Cancelar</button>
-                    <button id="btn-cancel-edit" class="btn-cancel">Cancelar</button>
+                    <button id="btn-cancel-edit" class="btn-cancel d-none">Cancelar</button>
                 </div>
                 
             </form>
         </div>
 
-    </section>
-
-    <section id="container-alerts">
-         <div id="success-confirmation" class="success-confirmation">
-            <p>Su acción se realizó con éxito!</p>
+        <div id="success-confirmation" class="success-confirmation">
+            <div class="alert-container">
+                <i class="fa-solid fa-circle-check"></i>
+                <p>Su acción se realizó con éxito!</p>
+            </div>
             <button id="btn-back-success" class="btn-back">Volver a Inicio</button>
         </div>
 
         <div id="warning-alert" class="warning-alert">
-            <p>Su acción no pudo realizarse, intente nuevamente.</p>
+            <div class="alert-container">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p>Su acción no pudo realizarse, intente nuevamente.</p>
+            </div>
             <button id="btn-back-warning" class="btn-back">Volver a Inicio</button>
         </div>
+
     </section>
 
     <footer>
-        <p>Copyright 2022 - Carolina Wilberg</p>
+        <p>Carolina Wilberg - 11va FE 2022</p>
     </footer>
 
     <script src="js/script.js"></script>

@@ -61,6 +61,15 @@ const showFormNewJob = () => {
     queryId("search-form").style.display = "none"
     queryId("container-cards").innerHTML = ""
     queryId("job-form").style.display = "block"
+    queryId("btn-save-new").classList.remove('d-none')
+    queryId("btn-cancel-new").classList.remove('d-none')
+    queryId("btn-save-edit").classList.add('d-none')
+    queryId("btn-cancel-edit").classList.add('d-none')
+    queryId("job-name").value = ""
+    queryId("job-category").value = ""
+    queryId("job-description").value = ""
+    queryId("job-location").value = ""
+    queryId("job-seniority").value = ""
 }
 
 queryId("btn-create").addEventListener('click', showFormNewJob)
@@ -68,7 +77,7 @@ queryId("btn-create").addEventListener('click', showFormNewJob)
 const showSuccessConfirmation = () => {
     queryId("container-cards").innerHTML = ""
     queryId("job-form").style.display = "none"
-    queryId("success-confirmation").style.display = "block"
+    queryId("success-confirmation").style.display = "flex"
 }
 queryId("btn-back-success").addEventListener('click', () => {
     queryId("success-confirmation").style.display = "none"
@@ -79,7 +88,7 @@ queryId("btn-back-success").addEventListener('click', () => {
 const showWarningAlert = () => {
     queryId("container-cards").innerHTML = ""
     queryId("job-form").style.display = "none"
-    queryId("warning-alert").style.display = "block"
+    queryId("warning-alert").style.display = "flex"
 }
 queryId("btn-back-warning").addEventListener('click', () => {
     queryId("warning-alert").style.display = "none"
@@ -170,9 +179,14 @@ const goBack = () => {
 const showDeleteConfirmation = (id) => {
     queryId("container-cards").innerHTML = `
     <div class="delete-confirmation">
-        <p>Está seguro que desea eliminar esta oferta de empleo?</p>
-        <button id="btn-confirm-delete" class="btn-delete" onclick=deleteJob(${id})>Eliminar</button>
-        <button id="btn-cancel" class="btn-cancel" onclick=getJob(${id})>Cancelar</button>
+        <div class="alert-container">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p>Está seguro que desea eliminar esta oferta de empleo?</p>
+        </div>
+        <div class="btn-container">
+            <button id="btn-confirm-delete" class="btn-delete" onclick=deleteJob(${id})>Eliminar</button>
+            <button id="btn-cancel" class="btn-back" onclick=getJob(${id})>Cancelar</button>
+        </div>
     </div>
     `
 }
@@ -193,10 +207,10 @@ const deleteJob = (id) => {
 const showEditForm = (id) => {
     editId = id
     queryId("job-form").style.display = "block"
-    queryId("btn-save-edit").style.display = "block"
-    queryId("btn-cancel-edit").style.display = "block"
-    queryId("btn-save-new").style.display = "none"
-    queryId("btn-cancel-new").style.display = "none"
+    queryId("btn-save-edit").classList.remove('d-none')
+    queryId("btn-cancel-edit").classList.remove('d-none')
+    queryId("btn-save-new").classList.add('d-none')
+    queryId("btn-cancel-new").classList.add('d-none')
     getJobInfo(id)
 }
 
@@ -247,8 +261,11 @@ const searchResults = () => {
         category: queryId("category-search").value
     }
     getData()
-        .then(res => createJobCards(res.filter(({ location, seniority, category }) =>
-                location === searchData.location || seniority === searchData.seniority || category === searchData.category
+        .then((res) => createJobCards(res.filter(
+            ({ location, seniority, category }) =>
+                location === searchData.location || 
+                seniority === searchData.seniority || 
+                category === searchData.category
         )))
         .catch(err => console.log(err))
 }

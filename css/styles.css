@@ -63,8 +63,7 @@ header nav a:hover {
   border: 1px solid #fe5f55;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 .container .search-form .btn-search:hover, .container .search-form .btn-clean:hover {
@@ -242,8 +241,7 @@ header nav a:hover {
   border: 1px solid #fe5f55;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 .container #container-cards .card .btn-detail:hover {
@@ -307,8 +305,7 @@ footer p {
   border: 1px solid #65d132;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 .card-detail .btn-edit:hover {
@@ -323,8 +320,7 @@ footer p {
   border: 1px solid #e22522;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 .card-detail .btn-delete:hover {
@@ -339,8 +335,7 @@ footer p {
   border: 1px solid #f7f7ff;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
   border: 1px solid #353535;
 }
@@ -368,102 +363,163 @@ footer p {
   }
 }
 
-.delete-confirmation, #container-alerts .warning-alert, #container-alerts .success-confirmation {
+.success-confirmation, .warning-alert {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  margin-bottom: 70px;
+  width: 70%;
+  background-color: #a0fd74;
+  border: 1px solid #498d29;
+  border-radius: 5px;
+}
+.success-confirmation .alert-container, .warning-alert .alert-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: #f78988;
-  border: 1px solid #f8615f;
-  border-radius: 5px;
-  padding: 50px;
 }
-.delete-confirmation p, #container-alerts .warning-alert p, #container-alerts .success-confirmation p {
-  width: 100%;
-  margin-bottom: 30px;
+.success-confirmation .alert-container .fa-solid, .warning-alert .alert-container .fa-solid {
+  font-size: 2em;
+  color: #498d29;
+  margin-right: 20px;
+}
+.success-confirmation .alert-container p, .warning-alert .alert-container p {
   font-weight: bold;
 }
-.delete-confirmation .btn-delete, #container-alerts .warning-alert .btn-delete, #container-alerts .success-confirmation .btn-delete {
+.success-confirmation .btn-back, .warning-alert .btn-back {
+  background-color: #f7f7ff;
+  color: #353535;
+  font-weight: bold;
+  border: 1px solid #f7f7ff;
+  border-radius: 5px;
+  margin: 0px 2px;
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 1px solid #353535;
+}
+.success-confirmation .btn-back:hover, .warning-alert .btn-back:hover {
+  background-color: #7f9dc7;
+  border: 1px solid #7f9dc7;
+  color: #f7f7ff;
+}
+@media only screen and (max-width: 960px) {
+  .success-confirmation, .warning-alert {
+    flex-direction: column;
+  }
+  .success-confirmation .alert-container, .warning-alert .alert-container {
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .success-confirmation, .warning-alert {
+    padding: 30px;
+  }
+  .success-confirmation .alert-container, .warning-alert .alert-container {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .success-confirmation .alert-container .fa-solid, .warning-alert .alert-container .fa-solid {
+    margin-right: 0px;
+  }
+  .success-confirmation .alert-container p, .warning-alert .alert-container p {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.warning-alert {
+  background-color: #faaead;
+  border: 1px solid #f73633;
+}
+.warning-alert .alert-container .fa-solid {
+  color: #f73633;
+}
+
+#container-cards .delete-confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #faaead;
+  border: 1px solid #f73633;
+  border-radius: 5px;
+  padding: 50px;
+  margin-bottom: 70px;
+}
+#container-cards .delete-confirmation .alert-container {
+  display: flex;
+  align-items: center;
+}
+#container-cards .delete-confirmation .alert-container .fa-solid {
+  font-size: 2em;
+  color: #f73633;
+  margin-right: 20px;
+}
+#container-cards .delete-confirmation .alert-container p {
+  font-weight: bold;
+}
+#container-cards .delete-confirmation .btn-container {
+  margin-top: 20px;
+}
+#container-cards .delete-confirmation .btn-container .btn-delete {
   background-color: #e22522;
   color: #f7f7ff;
   font-weight: bold;
   border: 1px solid #e22522;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
   margin-right: 40px;
 }
-.delete-confirmation .btn-delete:hover, #container-alerts .warning-alert .btn-delete:hover, #container-alerts .success-confirmation .btn-delete:hover {
+#container-cards .delete-confirmation .btn-container .btn-delete:hover {
   background-color: #b41c19;
   border: 1px solid #b41c19;
   color: #f7f7ff;
 }
-.delete-confirmation .btn-cancel, #container-alerts .warning-alert .btn-cancel, #container-alerts .success-confirmation .btn-cancel {
+#container-cards .delete-confirmation .btn-container .btn-back {
   background-color: #f7f7ff;
   color: #353535;
   font-weight: bold;
   border: 1px solid #f7f7ff;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
+  border: 1px solid #353535;
 }
-.delete-confirmation .btn-cancel:hover, #container-alerts .warning-alert .btn-cancel:hover, #container-alerts .success-confirmation .btn-cancel:hover {
-  background-color: #9cafc9;
-  border: 1px solid #9cafc9;
+#container-cards .delete-confirmation .btn-container .btn-back:hover {
+  background-color: #7f9dc7;
+  border: 1px solid #7f9dc7;
   color: #f7f7ff;
 }
-
-#container-alerts {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#container-alerts .success-confirmation {
-  display: none;
-  margin-bottom: 70px;
-  width: 70%;
-  background-color: #80eb4e;
-  border: 1px solid #498d29;
-}
-#container-alerts .success-confirmation .btn-back {
-  background-color: #f7f7ff;
-  color: #353535;
-  font-weight: bold;
-  border: 1px solid #f7f7ff;
-  border-radius: 5px;
-  margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
-  cursor: pointer;
-}
-#container-alerts .success-confirmation .btn-back:hover {
-  background-color: #9cafc9;
-  border: 1px solid #9cafc9;
-  color: #f7f7ff;
-}
-#container-alerts .warning-alert {
-  display: none;
-}
-#container-alerts .warning-alert .btn-back {
-  background-color: #f7f7ff;
-  color: #353535;
-  font-weight: bold;
-  border: 1px solid #f7f7ff;
-  border-radius: 5px;
-  margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
-  cursor: pointer;
-}
-#container-alerts .warning-alert .btn-back:hover {
-  background-color: #9cafc9;
-  border: 1px solid #9cafc9;
-  color: #f7f7ff;
+@media only screen and (max-width: 330px) {
+  #container-cards .delete-confirmation {
+    justify-content: center;
+    align-items: center;
+  }
+  #container-cards .delete-confirmation .alert-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #container-cards .delete-confirmation .alert-container .fa-solid {
+    margin-right: 0px;
+  }
+  #container-cards .delete-confirmation .alert-container p {
+    margin-top: 20px;
+  }
+  #container-cards .delete-confirmation .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #container-cards .delete-confirmation .btn-container .btn-delete {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
 }
 
 .job-form {
@@ -489,6 +545,10 @@ footer p {
 }
 .job-form form .select-technologies {
   height: 100px;
+  margin-bottom: 10px;
+}
+.job-form form p {
+  font-size: 0.9em;
   margin-bottom: 40px;
 }
 .job-form form textarea {
@@ -505,8 +565,7 @@ footer p {
   border: 1px solid #fe5f55;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
   margin-right: 20px;
 }
@@ -521,8 +580,7 @@ footer p {
   border: 1px solid #f7f7ff;
   border-radius: 5px;
   margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
+  padding: 7px 10px;
   cursor: pointer;
   border: 1px solid #353535;
 }
@@ -531,7 +589,7 @@ footer p {
   border: 1px solid #9cafc9;
   color: #f7f7ff;
 }
-.job-form form .btn-container #btn-save-edit, .job-form form .btn-container #btn-cancel-edit {
+.job-form form .btn-container .d-none {
   display: none;
 }
 
