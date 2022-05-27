@@ -1,5 +1,6 @@
 const BASE_URL = 'https://6276b8ad2f94a1d70606802c.mockapi.io/'
 const queryId = (id) => document.getElementById(id)
+let editId = 0
 
 
 const getData = async (id) => {
@@ -54,37 +55,39 @@ const createJobCards = (jobs) => {
     }, 2000)
 }
 
-queryId("btn-home").addEventListener('click', getJobs) //VER DE SACARLO
+queryId("btn-home").addEventListener('click', getJobs)
 
 const showFormNewJob = () => {
+    queryId("search-form").style.display = "none"
     queryId("container-cards").innerHTML = ""
-    queryId("create-job-form").style.display = "block"
+    queryId("job-form").style.display = "block"
 }
 
 queryId("btn-create").addEventListener('click', showFormNewJob)
 
 const showSuccessConfirmation = () => {
     queryId("container-cards").innerHTML = ""
-    queryId("create-job-form").style.display = "none"
+    queryId("job-form").style.display = "none"
     queryId("success-confirmation").style.display = "block"
 }
+queryId("btn-back-success").addEventListener('click', () => {
+    queryId("success-confirmation").style.display = "none"
+    queryId("search-form").style.display = "block"
+    getJobs()
+})
 
 const showWarningAlert = () => {
     queryId("container-cards").innerHTML = ""
-    queryId("create-job-form").style.display = "none"
+    queryId("job-form").style.display = "none"
     queryId("warning-alert").style.display = "block"
 }
-
-queryId("btn-back-success").addEventListener('click', () => {
-    queryId("success-confirmation").style.display = "none"
+queryId("btn-back-warning").addEventListener('click', () => {
+    queryId("warning-alert").style.display = "none"
+    queryId("search-form").style.display = "block"
     getJobs()
 })
-/*queryId("btn-back-warning").addEventListener('click', () => {
-    queryId("warning-alert").style.display = "none"
-    getJobs()
-})*/
 
-const saveNewJobData = () => {
+const saveJobData = () => {
     const colectionTechnologies = document.querySelectorAll('.technology')
     const selectedTechnologies = []
     for (const technology of colectionTechnologies){
@@ -106,7 +109,7 @@ const createJob = () => {
         headers: {
             'Content-Type': 'Application/json'
         },
-        body: JSON.stringify(saveNewJobData())
+        body: JSON.stringify(saveJobData())
     })
         .then(res => {
             if (res.ok){
@@ -116,28 +119,30 @@ const createJob = () => {
             }
         })
         .catch(err => console.log(err))
-        //.finally(() => location.reload())
 }
 
 queryId("btn-save-new").addEventListener('click', (e) => {
     e.preventDefault()
     createJob()
 })
+
 queryId("btn-cancel-new").addEventListener('click', () => {
-    queryId("create-job-form").style.display = "none"
+    queryId("search-form").style.display = "block"
+    queryId("job-form").style.display = "none"
     getJobs()
 })
 
 const getJob = (id) => {
     getData(id)
         .then(res => createJobDetail(res))
-        .catch(err => console.log(err))
+        .catch(err => showWarningAlert(err))
 }
 
 const createJobDetail = (job) => {
     handleLoader()
     setTimeout(() => {
     const { id, name, category, description, location, seniority, technologies } = job
+    queryId("search-form").style.display = "none"
     queryId("container-cards").innerHTML = `
         <div class="card-detail">
             <h3>${name}</h3>
@@ -150,10 +155,16 @@ const createJobDetail = (job) => {
             <div class="detail-technologies"><span>Tecnologías requeridas:</span> ${technologies.join(', ')}</div>
             <button id="btn-edit" class="btn-edit" onclick=showEditForm(${id})>Editar</button>
             <button id="btn-delete" class="btn-delete" onclick=showDeleteConfirmation(${id})>Eliminar</button>
-            <button id="btn-cancel" class="btn-cancel" onclick=getJobs()>Volver</button>
+            <button id="btn-cancel" class="btn-cancel" onclick=goBack()>Volver</button>
         </div>
         `
     }, 2000)
+}
+
+const goBack = () => {
+    queryId("container-cards").innerHTML = ""
+    getJobs()
+    queryId("search-form").style.display = "block"
 }
 
 const showDeleteConfirmation = (id) => {
@@ -177,17 +188,15 @@ const deleteJob = (id) => {
                 showWarningAlert()
             }
         })
-        .catch(err => console.log(err))
 }
 
 const showEditForm = (id) => {
-    queryId("edit-job-form").style.display = "block"
-    queryId("container-forms").innerHTML += `
-    <div class="btn-container">
-        <button id="btn-save-edit" class="btn-save-edit" onclick=editJob(${id})>Guardar</button>
-        <button id="btn-cancel-edit" class="btn-cancel-edit" onclick=getJobs()>Cancelar</button>
-    </div>
-    `
+    editId = id
+    queryId("job-form").style.display = "block"
+    queryId("btn-save-edit").style.display = "block"
+    queryId("btn-cancel-edit").style.display = "block"
+    queryId("btn-save-new").style.display = "none"
+    queryId("btn-cancel-new").style.display = "none"
     getJobInfo(id)
 }
 
@@ -199,45 +208,60 @@ const getJobInfo = (id) => {
 
 const prepopulateEditForm = (data) => {
     const { name, category, description, location, seniority } = data 
-    queryId("edited-job-name").value = name
-    queryId("edited-job-category").value = category
-    queryId("edited-job-description").value = description
-    queryId("edited-job-location").value = location
-    queryId("edited-job-seniority").value = seniority
+    queryId("job-name").value = name
+    queryId("job-category").value = category
+    queryId("job-description").value = description
+    queryId("job-location").value = location
+    queryId("job-seniority").value = seniority
 }
 
-const saveEditedJobData = (id) => {
-    const colectionTechnologies = document.querySelectorAll('.technology')
-    const selectedTechnologies = []
-    for (const technology of colectionTechnologies){
-      technology.selected ? selectedTechnologies.push(technology.value) : false
-    } 
-    return{
-        name: queryId("edited-job-name").value,
-        category: queryId("edited-job-category").value,
-        description: queryId("edited-job-description").value,
-        location: queryId("edited-job-location").value,
-        seniority: queryId("edited-job-seniority").value,
-        technologies: selectedTechnologies
-    }
-}
-
-const editJob = (id) => {
-    fetch(`${BASE_URL}jobs/${id}`, {
-        method: "PUT",
+queryId('btn-save-edit').addEventListener('click', (e) => {
+    e.preventDefault()
+      fetch(`${BASE_URL}jobs/${editId}`, {
+        method: 'PUT',
         headers: {
-            'Content-Type': 'Application/json'
+          "Content-Type": "Application/json",
         },
-        body: JSON.stringify(saveEditedJobData(id))
-    })
-    .then(res => {
+        body: JSON.stringify(saveJobData())
+      })
+      .then(res => {
         if (res.ok){
+            queryId("job-form").style.display = "none"
             showSuccessConfirmation()
         } else {
+            queryId("job-form").style.display = "none"
             showWarningAlert()
         }
     })
-    .catch(err => console.log(err))
-    //.finally(() => location.reload())
+})
+
+queryId('btn-cancel-edit').addEventListener('click', (e) => {
+    e.preventDefault()
+    queryId("job-form").style.display = "none"
+})
+
+const searchResults = () => {
+    let searchData = {
+        location: queryId("location-search").value,
+        seniority: queryId("seniority-search").value,
+        category: queryId("category-search").value
+    }
+    getData()
+        .then(res => createJobCards(res.filter(({ location, seniority, category }) =>
+                location === searchData.location || seniority === searchData.seniority || category === searchData.category
+        )))
+        .catch(err => console.log(err))
 }
 
+queryId("btn-search").addEventListener('click', (e) => {
+    e.preventDefault()
+    searchResults()
+})
+
+queryId("btn-clean").addEventListener('click', (e) => {
+    e.preventDefault()
+    queryId("location-search").value = ""
+    queryId("seniority-search").value = ""
+    queryId("category-search").value = ""
+    getJobs()
+})

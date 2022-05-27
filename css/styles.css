@@ -27,6 +27,18 @@ header nav a:hover {
   color: #fe5f55;
   border-bottom: 1px solid #fe5f55;
 }
+@media only screen and (max-width: 480px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  header nav a {
+    margin: 0px 5px;
+  }
+}
 
 .container {
   padding: 50px 90px;
@@ -68,6 +80,27 @@ header nav a:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;
+}
+@media only screen and (max-width: 980px) {
+  .container .search-form select {
+    width: 150px;
+  }
+}
+@media only screen and (max-width: 810px) {
+  .container .search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .container .search-form select {
+    width: 200px;
+    margin-top: 20px;
+  }
+  .container .search-form .btn-search, .container .search-form .btn-clean {
+    margin-top: 20px;
+  }
 }
 .container #container-cards {
   display: flex;
@@ -217,6 +250,11 @@ header nav a:hover {
   background-color: #ca473e;
   border: 1px solid #ca473e;
 }
+@media only screen and (max-width: 970px) {
+  .container {
+    padding: 50px 10px;
+  }
+}
 
 footer {
   margin-top: 50px;
@@ -240,6 +278,7 @@ footer p {
   border: 1px solid #495867;
   border-radius: 5px;
   padding: 40px;
+  margin-bottom: 50px;
 }
 .card-detail h3 {
   color: #fe5f55;
@@ -310,11 +349,29 @@ footer p {
   border: 1px solid #9cafc9;
   color: #f7f7ff;
 }
+@media only screen and (max-width: 630px) {
+  .card-detail {
+    min-width: 10%;
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 355px) {
+  .card-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .card-detail .btn-delete, .card-detail .btn-cancel {
+    margin-top: 10px;
+  }
+}
 
 .delete-confirmation, #container-alerts .warning-alert, #container-alerts .success-confirmation {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
   background-color: #f78988;
   border: 1px solid #f8615f;
@@ -369,15 +426,9 @@ footer p {
 #container-alerts .success-confirmation {
   display: none;
   margin-bottom: 70px;
-  flex-direction: row;
-  justify-content: space-evenly;
   width: 70%;
   background-color: #80eb4e;
   border: 1px solid #498d29;
-}
-#container-alerts .success-confirmation p {
-  width: 30%;
-  margin-bottom: 0px;
 }
 #container-alerts .success-confirmation .btn-back {
   background-color: #f7f7ff;
@@ -415,43 +466,39 @@ footer p {
   color: #f7f7ff;
 }
 
-#container-forms {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-#container-forms .job-form, #container-forms .edit-job-form {
+.job-form {
   display: none;
   width: 70%;
 }
-#container-forms .job-form form, #container-forms .edit-job-form form {
+.job-form form {
   display: flex;
   align-items: left;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
 }
-#container-forms .job-form form label, #container-forms .edit-job-form form label {
+.job-form form label {
   margin-bottom: 20px;
   color: #fe5f55;
   font-weight: bold;
 }
-#container-forms .job-form form select, #container-forms .edit-job-form form select, #container-forms .job-form form input, #container-forms .edit-job-form form input {
+.job-form form select, .job-form form input {
   width: 100%;
   height: 30px;
   margin-bottom: 20px;
 }
-#container-forms .job-form form .select-technologies, #container-forms .edit-job-form form .select-technologies {
+.job-form form .select-technologies {
   height: 100px;
   margin-bottom: 40px;
 }
-#container-forms .job-form form textarea, #container-forms .edit-job-form form textarea {
+.job-form form textarea {
   height: 100px;
   margin-bottom: 20px;
 }
-#container-forms .job-form form .btn-save-new, #container-forms .edit-job-form form .btn-save-new {
+.job-form form .btn-container {
+  flex-direction: row;
+}
+.job-form form .btn-container .btn-save {
   background-color: #fe5f55;
   color: #f7f7ff;
   font-weight: bold;
@@ -463,11 +510,11 @@ footer p {
   cursor: pointer;
   margin-right: 20px;
 }
-#container-forms .job-form form .btn-save-new:hover, #container-forms .edit-job-form form .btn-save-new:hover {
+.job-form form .btn-container .btn-save:hover {
   background-color: #ca473e;
   border: 1px solid #ca473e;
 }
-#container-forms .job-form form .btn-cancel-new, #container-forms .edit-job-form form .btn-cancel-new {
+.job-form form .btn-container .btn-cancel {
   background-color: #f7f7ff;
   color: #353535;
   font-weight: bold;
@@ -479,49 +526,13 @@ footer p {
   cursor: pointer;
   border: 1px solid #353535;
 }
-#container-forms .job-form form .btn-cancel-new:hover, #container-forms .edit-job-form form .btn-cancel-new:hover {
+.job-form form .btn-container .btn-cancel:hover {
   background-color: #9cafc9;
   border: 1px solid #9cafc9;
   color: #f7f7ff;
 }
-#container-forms .btn-container {
-  display: flex;
-  align-items: left;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#container-forms .btn-container .btn-save-edit {
-  background-color: #fe5f55;
-  color: #f7f7ff;
-  font-weight: bold;
-  border: 1px solid #fe5f55;
-  border-radius: 5px;
-  margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
-  cursor: pointer;
-  margin-right: 20px;
-}
-#container-forms .btn-container .btn-save-edit:hover {
-  background-color: #ca473e;
-  border: 1px solid #ca473e;
-}
-#container-forms .btn-container .btn-cancel-edit {
-  background-color: #f7f7ff;
-  color: #353535;
-  font-weight: bold;
-  border: 1px solid #f7f7ff;
-  border-radius: 5px;
-  margin: 0px 2px;
-  padding: 0px 10px;
-  height: 30px;
-  cursor: pointer;
-  border: 1px solid #353535;
-}
-#container-forms .btn-container .btn-cancel-edit:hover {
-  background-color: #9cafc9;
-  border: 1px solid #9cafc9;
-  color: #f7f7ff;
+.job-form form .btn-container #btn-save-edit, .job-form form .btn-container #btn-cancel-edit {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

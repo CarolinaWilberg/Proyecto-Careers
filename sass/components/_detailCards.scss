@@ -4,6 +4,7 @@
     border: 1px solid $secondary--color;
     border-radius: 5px;
     padding: 40px;
+    margin-bottom: 50px;
     h3{
         color: $font--color--accent;
         margin-bottom: 10px;
@@ -47,6 +48,17 @@
             background-color: #9cafc9;
             border: 1px solid #9cafc9;
             color: $font--color--secondary;
+        }
+    }
+    @media only screen and (max-width: 630px){
+        min-width: 10%;
+        width: 90%;
+    }
+    @media only screen and (max-width: 355px){
+        @include flex-display();
+        flex-direction: column;
+        .btn-delete, .btn-cancel{
+            margin-top: 10px;
         }
     }
 }

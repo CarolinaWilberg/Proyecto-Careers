@@ -1,5 +1,5 @@
 .delete-confirmation{
-    @include flex-display($justification: left);
+    @include flex-display();
     background-color: #f78988;
     border: 1px solid #f8615f;
     border-radius: 5px;
@@ -35,15 +35,9 @@
         display: none;
         margin-bottom: 70px;
         @extend .delete-confirmation;
-        flex-direction: row;
-        justify-content: space-evenly;
         width: 70%;
         background-color: #80eb4e;
         border: 1px solid $button--edit--hover;
-        p{
-            width: 30%;
-            margin-bottom: 0px;
-        }
         .btn-back{
             @include button_style ($background: $primary--color, $color: $font--color--primary);
             &:hover{
