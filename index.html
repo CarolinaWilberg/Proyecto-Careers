@@ -27,13 +27,27 @@
             <select name="Ubicación" id="location-search">
                 <option value="" disabled selected>Ubicación</option>
                 <option value="Argentina">Argentina</option>
-                <option value="Brasil">Brasil</option>
-                <option value="Canadá">Canadá</option>
-                <option value="Chile">Chile</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Costa Rica">Costa Rica</option>
-                <option value="Estados Unidos">Estados Unidos</option>
-                <option value="Uruguay">Uruguay</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Canadá">Canadá</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
             </select>
             <select name="Seniority" id="seniority-search">
                 <option value="" disabled selected>Nivel de experiencia</option>
@@ -79,7 +93,31 @@
                     <option value="Senior">Senior</option>
                 </select>
                 <label>Ubicación:</label>
-                <input id="job-location" type="text" name="location" required="required">
+                <select name="Ubicación" id="job-location" required>
+                    <option value="" disabled selected>Ubicación</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Canadá">Canadá</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                </select>
                 <label>Tecnologías requeridas:</label>
                 <select multiple id="job-technologies" class="select-technologies" required>
                     <option value="Analytics" class="technology">Analytics</option>
@@ -88,8 +126,10 @@
                     <option value="Cloud" class="technology">Cloud</option>
                     <option value="CSS" class="technology">CSS</option>
                     <option value="DB" class="technology">DB</option>
+                    <option value="Django" class="technology">Django</option>
                     <option value="Figma" class="technology">Figma</option>
                     <option value="Git" class="technology">Git</option>
+                    <option value="Google Analytics" class="technology">Google Analytics</option>
                     <option value="Grails" class="technology">Grails</option>
                     <option value="Groovy" class="technology">Groovy</option>
                     <option value="HTML" class="technology">HTML</option>
@@ -97,12 +137,15 @@
                     <option value="Java" class="technology">Java</option>
                     <option value="JavaScript" class="technology">JavaScript</option>
                     <option value="JSON" class="technology">JSON</option>
+                    <option value="Keen" class="technology">Keen</option>
                     <option value="Maze" class="technology">Maze</option>
                     <option value="Miro" class="technology">Miro</option>
+                    <option value="Mongo DB" class="technology">Mongo DB</option>
                     <option value="Mural" class="technology">Mural</option>
                     <option value="MySQL" class="technology">MySQL</option>
                     <option value="Node" class="technology">Node</option>
                     <option value="Oracle" class="technology">Oracle</option>
+                    <option value="PHP" class="technology">PHP</option>
                     <option value="PL/SQL" class="technology">PL/SQL</option>
                     <option value="Postman" class="technology">Postman</option>
                     <option value="Python" class="technology">Python</option>
@@ -115,14 +158,16 @@
                     <option value="SoapUI" class="technology">SoapUI</option>
                     <option value="Spring Framework" class="technology">Spring Framework</option>
                     <option value="SQL" class="technology">SQL</option>
+                    <option value="TypeScript" class="technology">TypeScript</option>
                     <option value="UML" class="technology">UML</option>
                     <option value="Vue" class="technology">Vue</option>
+                    <option value="Woopra" class="technology">Woopra</option>
                     <option value="XML" class="technology">XML</option>
                 </select>
                 <p>(Mantenga presionada la tecla Ctrl para seleccionar varias opciones)</p>
                 <div class="btn-container">
                     <button id="btn-save-new" class="btn-save">Guardar</button>
-                    <button id="btn-save-edit" class="btn-save d-none">Editar</button>
+                    <button id="btn-save-edit" class="btn-save d-none">Guardar</button>
                     <button id="btn-cancel-new" class="btn-cancel">Cancelar</button>
                     <button id="btn-cancel-edit" class="btn-cancel d-none">Cancelar</button>
                 </div>
