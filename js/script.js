@@ -81,7 +81,7 @@ const showSuccessConfirmation = () => {
 }
 queryId("btn-back-success").addEventListener('click', () => {
     queryId("success-confirmation").style.display = "none"
-    queryId("search-form").style.display = "block"
+    queryId("search-form").style.display = "flex"
     getJobs()
 })
 
@@ -92,7 +92,7 @@ const showWarningAlert = () => {
 }
 queryId("btn-back-warning").addEventListener('click', () => {
     queryId("warning-alert").style.display = "none"
-    queryId("search-form").style.display = "block"
+    queryId("search-form").style.display = "flex"
     getJobs()
 })
 
@@ -136,7 +136,7 @@ queryId("btn-save-new").addEventListener('click', (e) => {
 })
 
 queryId("btn-cancel-new").addEventListener('click', () => {
-    queryId("search-form").style.display = "block"
+    queryId("search-form").style.display = "flex"
     queryId("job-form").style.display = "none"
     getJobs()
 })
@@ -173,7 +173,7 @@ const createJobDetail = (job) => {
 const goBack = () => {
     queryId("container-cards").innerHTML = ""
     getJobs()
-    queryId("search-form").style.display = "block"
+    queryId("search-form").style.display = "flex"
 }
 
 const showDeleteConfirmation = (id) => {
